@@ -11,8 +11,8 @@ services:
       - ./backend/:/usr/src/app/
       - ./backend/staticfiles:/usr/src/app/staticfiles
       - ./backend/mediafiles:/usr/src/app/mediafiles
-    expose:
-      - 8000
+    ports:
+      - 8000:8000
 
   nginx:
     build:
