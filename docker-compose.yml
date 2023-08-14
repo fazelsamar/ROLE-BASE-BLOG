@@ -21,8 +21,8 @@ services:
       - 80:80
     volumes:
       - ./nginx/conf.d/:/etc/nginx/conf.d/
-      - ./django/staticfiles:/home/app/staticfiles
-      - ./django/mediafiles:/home/app/mediafiles
+      - ./backend/staticfiles:/home/app/staticfiles
+      - ./backend/mediafiles:/home/app/mediafiles
       - ./nginx/build:/home/app/reactfiles
     depends_on:
       - backend
