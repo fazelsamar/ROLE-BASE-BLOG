@@ -24,7 +24,7 @@ SECRET_KEY = "django-insecure-9z6oy^s39+zdon2r2ydr7ep0wafwafwaf(#o5*p(om)8&@4gwv
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-DEBUG_PROPAGATE_EXCEPTIONS = True
+# DEBUG_PROPAGATE_EXCEPTIONS = True
 
 ALLOWED_HOSTS = ["91.107.244.55", "http://91.107.244.55", "https://91.107.244.55"]
 
@@ -143,4 +143,4 @@ REST_FRAMEWORK = {
 }
 
 # CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = False
+# SECURE_SSL_REDIRECT = False
