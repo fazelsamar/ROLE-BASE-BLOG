@@ -75,13 +75,6 @@ function AdminIndex() {
               Users
             </Link>
           ) : null}
-          <Link
-            to="/admin/site-settings"
-            className="btn btn-primary"
-            style={{ marginRight: "5px" }}
-          >
-            Site Settings
-          </Link>
         </>
       )}
     </>
