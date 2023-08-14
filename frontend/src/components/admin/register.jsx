@@ -8,7 +8,7 @@ function Register() {
     for (var key in user) {
       formData.append(key, user[key]);
     }
-    fetch(`http://127.0.0.1:8000/account/login/`, {
+    fetch(`http://${process.env.REACT_APP_API}/account/login/`, {
       method: "POST",
       body: JSON.stringify(user),
       headers: { "Content-Type": "application/json" },
@@ -34,7 +34,7 @@ function Register() {
     for (var key in user) {
       formData.append(key, user[key]);
     }
-    fetch(`http://127.0.0.1:8000/account/register/`, {
+    fetch(`http://${process.env.REACT_APP_API}/account/register/`, {
       method: "POST",
       body: JSON.stringify(user),
       headers: { "Content-Type": "application/json" },

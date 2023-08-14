@@ -13,7 +13,7 @@ function AdminPost() {
     var token = localStorage.getItem("token");
     if (token) {
       axios
-        .get(`http://127.0.0.1:8000/account/me/`, {
+        .get(`http://${process.env.REACT_APP_API}/account/me/`, {
           headers: {
             Authorization: "Token  " + token,
           },
@@ -37,7 +37,7 @@ function AdminPost() {
   };
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/blog/posts/${id}`)
+      .get(`http://${process.env.REACT_APP_API}/blog/posts/${id}`)
       .then((res) => setPost(res.data))
       .catch((err) => console.log(err));
     fetchUser();
@@ -45,7 +45,7 @@ function AdminPost() {
 
   const deleteHandler = () => {
     axios
-      .delete(`http://127.0.0.1:8000/blog/posts/${id}`, {
+      .delete(`http://${process.env.REACT_APP_API}/blog/posts/${id}`, {
         headers: {
           Authorization: "Token  " + localStorage.getItem("token"),
         },
@@ -65,7 +65,7 @@ function AdminPost() {
     for (var key in editPost) {
       formData.append(key, editPost[key]);
     }
-    fetch(`http://127.0.0.1:8000/blog/posts/${id}/`, {
+    fetch(`http://${process.env.REACT_APP_API}/blog/posts/${id}/`, {
       method: "PATCH",
       body: formData,
       headers: {

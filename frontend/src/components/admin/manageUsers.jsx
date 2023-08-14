@@ -11,7 +11,7 @@ function ManageUsers() {
     var token = localStorage.getItem("token");
     if (token) {
       axios
-        .get(`http://127.0.0.1:8000/account/me/`, {
+        .get(`http://${process.env.REACT_APP_API}/account/me/`, {
           headers: {
             Authorization: "Token  " + token,
           },
@@ -40,7 +40,7 @@ function ManageUsers() {
 
   const logoutHandler = (username) => {
     axios
-      .get(`http://127.0.0.1:8000/account/logout/${username}`, {
+      .get(`http://${process.env.REACT_APP_API}/account/logout/${username}`, {
         headers: {
           Authorization: "Token  " + localStorage.getItem("token"),
         },
@@ -55,7 +55,7 @@ function ManageUsers() {
   useEffect(() => {
     fetchUser();
     axios
-      .get(`http://127.0.0.1:8000/account/users/`, {
+      .get(`http://${process.env.REACT_APP_API}/account/users/`, {
         headers: {
           Authorization: "Token  " + localStorage.getItem("token"),
         },

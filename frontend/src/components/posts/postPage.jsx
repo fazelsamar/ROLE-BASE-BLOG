@@ -7,7 +7,7 @@ function Post() {
   const [post, setPost] = useState({});
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/blog/posts/${id}`)
+      .get(`http://${process.env.REACT_APP_API}/blog/posts/${id}`)
       .then((res) => setPost(res.data))
       .catch((err) => console.log(err));
   }, []);

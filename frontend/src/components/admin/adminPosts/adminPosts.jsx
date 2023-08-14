@@ -12,7 +12,7 @@ function AdminPosts() {
     var token = localStorage.getItem("token");
     if (token) {
       axios
-        .get(`http://127.0.0.1:8000/account/me/`, {
+        .get(`http://${process.env.REACT_APP_API}/account/me/`, {
           headers: {
             Authorization: "Token  " + token,
           },
@@ -38,7 +38,7 @@ function AdminPosts() {
   useEffect(() => {
     fetchUser();
     axios
-      .get(`http://127.0.0.1:8000/blog/posts/`)
+      .get(`http://${process.env.REACT_APP_API}/blog/posts/`)
       .then((res) => setPosts(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -50,7 +50,7 @@ function AdminPosts() {
     for (var key in newPost) {
       formData.append(key, newPost[key]);
     }
-    fetch(`http://127.0.0.1:8000/blog/posts/`, {
+    fetch(`http://${process.env.REACT_APP_API}/blog/posts/`, {
       method: "POST",
       body: formData,
       headers: {

@@ -7,7 +7,7 @@ function Posts() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/blog/posts/`)
+      .get(`http://${process.env.REACT_APP_API}/blog/posts/`)
       .then((res) => setPosts(res.data))
       .catch((err) => console.log(err));
   }, []);
