@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+
+  backend:
+    build:
+      context: ./backend/
+    command: bash -c "python manage.py migrate &&
+      python manage.py collectstatic --no-input &&
+      gunicorn config.wsgi:application --bind 0.0.0.0:8000"
+    volumes:
+      - ./backend/:/usr/src/app/
+      - ./backend/staticfiles:/usr/src/app/staticfiles
+      - ./backend/mediafiles:/usr/src/app/mediafiles
+    expose:
+      - 8000
+
+  nginx:
+    build:
+      context: ./nginx/
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./django/staticfiles:/home/app/staticfiles
+      - ./django/mediafiles:/home/app/mediafiles
+      - ./nginx/build:/home/app/reactfiles
+    depends_on:
+      - backend
