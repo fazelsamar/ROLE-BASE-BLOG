@@ -27,6 +27,7 @@ DEBUG = False
 DEBUG_PROPAGATE_EXCEPTIONS = False
 
 ALLOWED_HOSTS = ["91.107.244.55", "http://91.107.244.55", "https://91.107.244.55"]
+# ALLOWED_HOSTS = ["localhost"]
 
 CORS_ALLOW_ALL_ORIGINS = True
 

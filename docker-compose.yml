@@ -11,14 +11,14 @@ services:
       - ./backend/:/usr/src/app/
       - ./backend/staticfiles:/usr/src/app/staticfiles
       - ./backend/mediafiles:/usr/src/app/mediafiles
-    ports:
-      - 8000:8000
+    # ports:
 
   nginx:
     build:
       context: ./nginx/
     ports:
       - 80:80
+      - 8000:8000
     volumes:
       - ./nginx/conf.d/:/etc/nginx/conf.d/
       - ./backend/staticfiles:/home/app/staticfiles
