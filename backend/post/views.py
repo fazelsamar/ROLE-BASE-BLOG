@@ -20,3 +20,9 @@ class PostViewSet(ModelViewSet):
             return [permissions.IsAdminOrHasEditPostPermission()]
         if self.request.method == "DELETE":
             return [permissions.IsAdminOrHasDeletePostPermission()]
+
+
+class CommentViewSet(ModelViewSet):
+    queryset = models.Comment.objects
+    serializer_class = serializers.CommentSerializer
+    permission_classes = [IsAuthenticated]
